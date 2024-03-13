@@ -1,0 +1,21 @@
+module.exports = {
+    LOCATIONS: 'hv_locations',
+    USERS: 'hv_users',
+    COMPANIES: 'hv_companies',
+    DIVISIONS:  'hv_divisions',
+    EQUIPMENT: 'hv_equipment',
+    APPRTYPE: 'hv_appr_type',
+    PERMISSION: 'hv_permission',
+    USER_PERMISSION: 'hv_user_permission',
+    SHIPPINGS: 'hv_shippings',
+    ROLE: 'hv_role',
+    ROLE_PERMISSION: 'hv_role_permission',
+    SAMPLEINFO: 'hv_sampleinfo',
+    FQTABLE: 'hv_fq',
+    DGATABLE: 'hv_dga',
+    DIAGTABLE: 'hv_diag',
+    NORM_REFERENCE: 'hv_norm_reference',
+    REPORT_REMARK: 'hv_report_remark',
+    REQUEST_SHIPPINGS: 'hv_request_shipping',
+    TOKENS: 'hv_tokens'
+}
