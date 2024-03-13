@@ -26,7 +26,7 @@ SampleInfo.init({
   },
   equipment_id: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
     references: {
       model: {
         tableName: EQUIPMENT
@@ -109,7 +109,7 @@ SampleInfo.init({
     // allowNull: false
   },
   sample_date: {
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   lab_report_number: {
     type: DataTypes.STRING,
@@ -122,15 +122,15 @@ SampleInfo.init({
     type: DataTypes.STRING
   },
   lab_recv_date: {
-    type: DataTypes.DATE,
+    type: 'TIMESTAMP',
     allowNull: false
   },
   lab_test_date: {
-    type: DataTypes.DATE,
+    type: 'TIMESTAMP',
     allowNull: false
   },
   ship_date: {
-    type: DataTypes.DATE,
+    type: 'TIMESTAMP',
     allowNull: false
   },
   job_number: {
@@ -214,7 +214,7 @@ SampleInfo.init({
     allowNull: true
   },
   first_report_date: {
-    type: DataTypes.DATE,
+    type: 'TIMESTAMP',
     allowNull: false
   },
   created_by: {
@@ -242,15 +242,13 @@ SampleInfo.init({
     onDelete: 'NO ACTION'
   },
   created_at: {
-    allowNull: false,
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   updated_at: {
-    allowNull: false,
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   deleted_at: {
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   }
 }, {
   sequelize,

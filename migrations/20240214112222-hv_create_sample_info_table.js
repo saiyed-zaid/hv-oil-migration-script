@@ -96,7 +96,7 @@ module.exports = {
         allowNull: false
       },
       sample_date: {
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP' // DATETIME
       },
       lab_report_number: {
         type: Sequelize.STRING,
@@ -111,15 +111,15 @@ module.exports = {
         allowNull: true
       },
       lab_recv_date: {
-        type: 'TIMESTAMP',
+        type: 'TIMESTAMP',  // TIMESTAMP
         allowNull: false
       },
       lab_test_date: {
-        type: 'TIMESTAMP',
+        type: 'TIMESTAMP',  // TIMESTAMP
         allowNull: false
       },
       ship_date: {
-        type: 'TIMESTAMP',
+        type: 'TIMESTAMP',  // TIMESTAMP
         allowNull: false
       },
       job_number: {
@@ -203,7 +203,7 @@ module.exports = {
         allowNull: true
       },
       first_report_date: {
-        type: 'TIMESTAMP',
+        type: 'TIMESTAMP',  // TIMESTAMP
         allowNull: false
       },
       created_by: {
@@ -232,14 +232,14 @@ module.exports = {
       },
       created_at: {
         allowNull: false,
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       },
       updated_at: {
         allowNull: false,
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       },
       deleted_at: {
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       }
     }, {
       timestamps: true,

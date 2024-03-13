@@ -8,6 +8,7 @@ const equipmentMigration = require('./equipment/migration');
 const shippingMigration = require('./shipping/migration');
 const userMigration = require('./user/migration');
 const moment = require('moment');
+const reportMigrationV2 = require('./report/migration.v2');
 
 let askMore = true;
 const questions =
@@ -86,10 +87,10 @@ const questions =
                 case 'REPORTS':
                     const reportMigreation = await DatabaseMigration.findOne({ where: { tableName: 'REPORTS' } });
                     try {
-                        // if (reportMigreation.status === 'IN_PROGRESS') continue;
-                        // await _update(reportMigreation, 'IN_PROGRESS', moment().format('YYYY-MM-DD HH:mm:ss'), null);
-                        await reportMigration();
-                        // await _update(reportMigreation, 'DONE', null, moment().format('YYYY-MM-DD HH:mm:ss'));
+                        if (reportMigreation.status === 'IN_PROGRESS') continue;
+                        await _update(reportMigreation, 'IN_PROGRESS', moment().format('YYYY-MM-DD HH:mm:ss'), null);
+                        await reportMigrationV2();
+                        await _update(reportMigreation, 'DONE', null, moment().format('YYYY-MM-DD HH:mm:ss'));
                     } catch (error) {
                         await _update(reportMigreation, 'FAILED', null, moment().format('YYYY-MM-DD HH:mm:ss'));
                     }
@@ -99,7 +100,7 @@ const questions =
     } catch (error) {
         console.error(error.message);
     }
-})()
+})();
 
 async function _update(model, status, startTime = null, endTime = null) {
     model.status = status;

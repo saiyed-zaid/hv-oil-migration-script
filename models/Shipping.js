@@ -122,6 +122,15 @@ Shipping.init({
     onUpdate: 'CASCADE',
     onDelete: 'NO ACTION'
   },
+  created_at: {
+    type: 'TIMESTAMP'
+  },
+  updated_at: {
+    type: 'TIMESTAMP'
+  },
+  deleted_at: {
+    type: 'TIMESTAMP'
+  }
 }, {
   sequelize,
   modelName: 'Shipping',

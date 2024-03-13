@@ -15,26 +15,25 @@ module.exports = {
       },
       startTime: {
         type: 'TIMESTAMP',
-        defaultValue: null
       },
       endTime: {
         type: 'TIMESTAMP',
-        defaultValue: null
       },
       status: {
-        type: Sequelize.STRING, // PENDING, IN_PROGRESS, DONE, FAILED
-        defaultValue: 'PENDING'
+        type: Sequelize.STRING,
       },
       created_at: {
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP',
+        allowNull: false
       },
       updated_at: {
+        allowNull: false,
         type: 'TIMESTAMP'
       },
       deleted_at: {
         type: 'TIMESTAMP'
       }
-    });
+    },);
   },
 
   async down(queryInterface, Sequelize) {

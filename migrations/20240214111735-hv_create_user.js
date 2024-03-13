@@ -49,6 +49,10 @@ module.exports = {
         defaultValue: 'active',
         allowNull: false
       },
+      is_new_user: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true
+      },
       created_by: {
         type: Sequelize.INTEGER,
         allowNull: true,

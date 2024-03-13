@@ -1,4 +1,5 @@
 'use strict';
+const moment = require('moment');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -19,8 +20,8 @@ module.exports = {
         // startTime: "",
         // endTime: "test1",
         status: "PENDING",
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: moment().format('YYYY-MM-DD hh:mm:ss'),
+        updated_at: moment().format('YYYY-MM-DD hh:mm:ss')
       },
       {
         id: 2,
@@ -28,8 +29,8 @@ module.exports = {
         // startTime: "",
         // endTime: "test1",
         status: "PENDING",
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: moment().format('YYYY-MM-DD hh:mm:ss'),
+        updated_at: moment().format('YYYY-MM-DD hh:mm:ss')
       },
       {
         id: 3,
@@ -37,8 +38,8 @@ module.exports = {
         // startTime: "",
         // endTime: "test1",
         status: "PENDING",
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: moment().format('YYYY-MM-DD hh:mm:ss'),
+        updated_at: moment().format('YYYY-MM-DD hh:mm:ss')
       },
       {
         id: 4,
@@ -46,8 +47,8 @@ module.exports = {
         // startTime: "",
         // endTime: "test1",
         status: "PENDING",
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: moment().format('YYYY-MM-DD hh:mm:ss'),
+        updated_at: moment().format('YYYY-MM-DD hh:mm:ss')
       },
       {
         id: 5,
@@ -55,8 +56,8 @@ module.exports = {
         // startTime: "",
         // endTime: "test1",
         status: "PENDING",
-        created_at: new Date(),
-        updated_at: new Date()
+        created_at: moment().format('YYYY-MM-DD hh:mm:ss'),
+        updated_at: moment().format('YYYY-MM-DD hh:mm:ss')
       }
     ], {});
   },

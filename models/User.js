@@ -69,9 +69,9 @@ class User extends Model {
     models.User.belongsTo(models.Division, { foreignKey: 'division_id', targetKey: 'id', as: 'division' });
     models.User.addScope('division', { include: [{ model: models.Division, attributes: ["id", "name"], as: 'division' }] });
     models.User.belongsTo(models.Company, { foreignKey: 'company_id', targetKey: 'id', as: 'company' });
-    models.User.addScope('company', { include: [{ model: models.Company, attributes: ["id", "name"], as: 'company', include: [{ model: models.Location, attributes: ["id", "name"], as: 'location' }] }]});
+    models.User.addScope('company', { include: [{ model: models.Company, attributes: ["id", "name"], as: 'company', include: [{ model: models.Location, attributes: ["id", "name"], as: 'location' }] }] });
 
-    models.User.hasMany(models.Report_remark, {as:'users', foreignKey: 'created_by'});
+    models.User.hasMany(models.Report_remark, { as: 'users', foreignKey: 'created_by' });
   }
 }
 User.init({
@@ -159,7 +159,7 @@ User.init({
     }
   },
   try_after: {
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   status: {
     type: DataTypes.ENUM({
@@ -167,6 +167,10 @@ User.init({
     }),
     defaultValue: 'active',
     allowNull: false
+  },
+  is_new_user: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
   },
   created_by: {
     type: DataTypes.INTEGER,
@@ -191,6 +195,15 @@ User.init({
     },
     onUpdate: 'CASCADE',
     onDelete: 'NO ACTION'
+  },
+  created_at: {
+    type: 'TIMESTAMP'
+  },
+  updated_at: {
+    type: 'TIMESTAMP'
+  },
+  deleted_at: {
+    type: 'TIMESTAMP'
   }
 }, {
   sequelize,
@@ -208,5 +221,6 @@ User.init({
     }
   }
 });
+
 
 module.exports = User;

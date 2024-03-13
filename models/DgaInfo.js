@@ -8,7 +8,7 @@ class DgaInfo extends Model {
   }
 }
 DgaInfo.init({
-  sammple_data: { type: DataTypes.DATE },
+  sammple_data: { type: 'TIMESTAMP' },
   lab_report_number: { type: DataTypes.STRING },
   H2: { type: DataTypes.STRING },
   O2: { type: DataTypes.STRING },

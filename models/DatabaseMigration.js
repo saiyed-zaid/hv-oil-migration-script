@@ -28,12 +28,12 @@ DatabaseMigration.init({
         defaultValue: 'PENDING'
     },
     created_at: {
-        allowNull: false,
-        type: DataTypes.DATE
+        type: 'TIMESTAMP',
+        allowNull: false
     },
     updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: 'TIMESTAMP'
     },
     deleted_at: {
         type: 'TIMESTAMP'

@@ -49,7 +49,7 @@ Report_remark.init({
         allowNull: true
     },
     next_sample_date: {
-        type: DataTypes.DATE,
+        type: 'TIMESTAMP',
         allowNull: true
     },
     comments: {
@@ -86,14 +86,14 @@ Report_remark.init({
     },
     created_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: 'TIMESTAMP'
     },
     updated_at: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: 'TIMESTAMP'
     },
     deleted_at: {
-        type: DataTypes.DATE
+        type: 'TIMESTAMP'
     }
 }, {
     sequelize,

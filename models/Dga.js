@@ -65,7 +65,7 @@ Dga.init({
     allowNull: false
   },
   sample_date: {
-    type: DataTypes.DATE,
+    type: 'TIMESTAMP',
     defaultValue: DataTypes.NOW,
     allowNull: false
   },
@@ -135,14 +135,14 @@ Dga.init({
   },
   created_at: {
     allowNull: false,
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   updated_at: {
     allowNull: false,
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   },
   deleted_at: {
-    type: DataTypes.DATE
+    type: 'TIMESTAMP'
   }
 }, {
   sequelize,

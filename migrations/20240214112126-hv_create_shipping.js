@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false
       },
       shipping_date: {
-        type: Sequelize.DATEONLY,
+        type: Sequelize.DATEONLY, // DATE
         allowNull: true
       },
       company_id: {

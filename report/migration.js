@@ -73,6 +73,7 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                 company ? equipmentFilter.where.company_id = company.id : "";
 
                 const equipment = await Equipment.findOne(equipmentFilter);
+                if (!equipment) return true;
 
                 const sampleInforDataToInsert = {
                     serial_number: sampleInfoTableRecord.SERIALNUM,

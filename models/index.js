@@ -11,12 +11,13 @@ db.Division = require('./Division');
 db.Equipment = require('./Equipment')
 db.Permission = require('./Permission')
 db.Shipping = require('./Shipping');
-db.Request_shipping = require('./Request-shipping')
+db.Request_shipping = require('./RequestShipping')
 db.Role = require('./Role')
-db.Role_permission = require('./Role_permission')
+db.Role_permission = require('./RolePermission')
 db.SampleInfo = require('./SampleInfo')
 db.DgaInfo = require('./DgaInfo')
-db.Report_remark = require('./Report-remark')
+db.Report_remark = require('./ReportRemark')
+db.Tokens = require('./Tokens')
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {

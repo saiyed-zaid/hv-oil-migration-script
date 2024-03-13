@@ -62,7 +62,7 @@ module.exports = {
       },
       sample_date: {
         type: 'TIMESTAMP',
-        defaultValue: Sequelize.NOW,
+        defaultValue: Sequelize.NOW,  // TIMESTAMP
         allowNull: false
       },
       lab_report_number: {
@@ -131,14 +131,14 @@ module.exports = {
       },
       created_at: {
         allowNull: false,
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       },
       updated_at: {
         allowNull: false,
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       },
       deleted_at: {
-        type: 'TIMESTAMP'
+        type: 'TIMESTAMP'  // TIMESTAMP
       }
     }, {
       timestamps: true,
