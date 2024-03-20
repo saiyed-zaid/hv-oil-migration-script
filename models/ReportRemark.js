@@ -49,7 +49,7 @@ Report_remark.init({
         allowNull: true
     },
     next_sample_date: {
-        type: 'TIMESTAMP',
+        type: DataTypes.DATEONLY,
         allowNull: true
     },
     comments: {

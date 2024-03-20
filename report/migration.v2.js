@@ -56,11 +56,9 @@ async function reportMigrationV2() {
                 if (!company) continue;
 
                 /* Find Sample Information table */
-                const sampleInfoTableQuery = `SELECT * FROM saminfotable WHERE COMPNAME="${company.name}" AND EQUIPNUM = "${equipment.equipment_number}" AND SERIALNUM = "${equipment.serial_number}" AND APPRTYPE = "${equipment.appr_type_name}"`;
-                // console.log({ sampleInfoTableQuery });
+                const sampleInfoTableQuery = `SELECT * FROM saminfotable WHERE COMPNAME="${company.name}" AND SERIALNUM = "${equipment.serial_number}" AND APPRTYPE = "${equipment.appr_type_name}"`;
+
                 const [sampleInfoTableRecords] = await connection.query(sampleInfoTableQuery);
-                // console.log('> sampleInfoTableRecords: ', sampleInfoTableRecords.length);
-                // console.log('> sampleInfoTableRecords: ', sampleInfoTableRecords[1]);
 
                 if (sampleInfoTableRecords.length === 0) continue;
                 for (let sampleInfoindex = 0; sampleInfoindex < sampleInfoTableRecords.length; sampleInfoindex++) {
@@ -71,11 +69,13 @@ async function reportMigrationV2() {
 
                         const sampleInfoDataObj = {
                             location_id: 1,
+                            company_id: company ? company.id : null,
+                            division_id: equipment ? equipment.division_id : null,
+
                             location_name: "test1",
+                            company_name: sampleInfoData.COMPNAME,
                             serial_number: sampleInfoData.SERIALNUM,
 
-                            company_id: company ? company.id : null,
-                            company_name: sampleInfoData.COMPNAME,
 
                             appr_type_id: equipment.appr_type_id,
                             appr_type_name: sampleInfoData.APPRTYPE,
@@ -136,18 +136,17 @@ async function reportMigrationV2() {
 
                         /* Find DGA table information */
                         //--------------------------//
-
-                        const dgaTableQuery = `SELECT * FROM dgatable WHERE date(SAMPLEDATE) = "${moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD')}" AND LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
+                        // date(SAMPLEDATE) = "${moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD')}" AND 
+                        const dgaTableQuery = `SELECT * FROM dgatable WHERE LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
 
                         const [dgaTableRecords] = await connection.query(dgaTableQuery);
                         if (dgaTableRecords.length > 0) {
-                            console.log('> dgaTableRecords: ', dgaTableRecords.length);
                             const dgaTableObj = {
                                 location_id: 1,
-                                location_name: 'test1',
-                                company_id: company ? company.id : undefined,
-                                company_name: sampleInfoData.COMPNAME,
+                                company_id: company ? company.id : null,
                                 division_id: equipment ? equipment.division_id : null,
+                                location_name: 'test1',
+                                company_name: sampleInfoData.COMPNAME,
                                 division_name: equipment ? equipment.division_id : null,
                                 sample_date: moment(sampleInfoData.SAMPLEDATE).toISOString() !== null
                                     ? moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
@@ -174,19 +173,18 @@ async function reportMigrationV2() {
                             await Dga.create(dgaTableObj);
                             // fs.writeFileSync('test-dgaTableObj.json', JSON.stringify(dgaTableObj, null, 2), { flag: 'a' });
                         }
-                        /* Find DIAG table information */
-                        //--------------------------//
 
-                        const diagTableQuery = `SELECT * FROM diagtable WHERE date(SAMPLEDATE) = "${moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD')}" AND LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
+                        const diagTableQuery = `SELECT * FROM diagtable WHERE LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
+
 
                         const [diagTableRecords] = await connection.query(diagTableQuery);
                         if (diagTableRecords.length > 0) {
                             const diagtableObj = {
                                 location_id: 1,
-                                location_name: 'test1',
                                 company_id: company ? company.id : null,
-                                company_name: sampleInfoData.COMPNAME,
                                 division_id: equipment ? equipment.division_id : null,
+                                location_name: 'test1',
+                                company_name: sampleInfoData.COMPNAME,
                                 division_name: equipment ? equipment.division_id : null,
                                 sample_date: moment(diagTableRecords[0].SAMPLEDATE).toISOString() !== null
                                     ? moment(diagTableRecords[0].SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
@@ -232,18 +230,16 @@ async function reportMigrationV2() {
                             // fs.writeFileSync('test-diagtableObj.json', JSON.stringify(diagtableObj, null, 2), { flag: 'a' });
                         }
 
-                        /* Find FQ table information */
-                        //--------------------------//
-                        const fqTableQuery = `SELECT * FROM fqtable WHERE date(SAMPLEDATE) = "${moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD')}" AND LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
+                        const fqTableQuery = `SELECT * FROM fqtable WHERE LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
 
                         const [fqTableRecords] = await connection.query(fqTableQuery);
                         if (fqTableRecords.length > 0) {
                             const fqTableObj = {
                                 location_id: 1,
-                                location_name: 'test1',
                                 company_id: company ? company.id : null,
-                                company_name: sampleInfoData.COMPNAME,
                                 division_id: equipment ? equipment.division_id : null,
+                                location_name: 'test1',
+                                company_name: sampleInfoData.COMPNAME,
                                 division_name: equipment ? equipment.division_id : null,
                                 sample_date:
                                     moment(fqTableRecords[0].SAMPLEDATE, 'YYYY-MM-DD hh:mm:ss').toISOString() !== null
@@ -304,11 +300,10 @@ async function reportMigrationV2() {
                             // fs.writeFileSync('test-fqTableObj.json', JSON.stringify(fqTableObj, null, 2), { flag: 'a' });
                         }
 
-                        /* Find Report Remark table information */
-                        //--------------------------//
-                        const reportRemarkQuery = `SELECT * FROM reportremark WHERE EQUIPMENTTYPE = "${sampleInfoData.APPRTYPE}" AND LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
+                        const reportRemarkQuery = `SELECT * FROM reportremark WHERE LABREPORTNUM = "${sampleInfoData.LABREPORTNUM}"`;
 
                         const [reportRemarkRecords] = await connection.query(reportRemarkQuery);
+
                         if (reportRemarkRecords.length > 0) {
                             const reportRemarkObj = {
                                 lab_report_number: sampleInfoData.LABREPORTNUM,
@@ -319,7 +314,9 @@ async function reportMigrationV2() {
                                 oil_reconditioning: reportRemarkRecords[0].OILRECONDITIONING,
                                 oil_replacement: reportRemarkRecords[0].OILREPLACEMENT,
                                 next_tests: reportRemarkRecords[0].NEXTTESTS,
-                                next_sample_date: reportRemarkRecords[0].NEXTSAMPLEDATE,
+                                next_sample_date: moment(reportRemarkRecords[0].NEXTSAMPLEDATE, 'YYYY-MM-DD').toISOString() !== null
+                                    ? moment(reportRemarkRecords[0].NEXTSAMPLEDATE).format('YYYY-MM-DD')
+                                    : moment().format('YYYY-MM-DD'),
                                 comments: reportRemarkRecords[0].COMMENTS,
                                 action_items: reportRemarkRecords[0].ACTIONITEMS,
                                 created_by: user ? user.id : null,
@@ -336,7 +333,9 @@ async function reportMigrationV2() {
                         }
 
                     } catch (error) {
-                        console.error('> Report:Sample Info Table:Error: ', error.message);
+                        console.error(`> Report | Sample Info | Migration ERR | Row number : ${equipmentIndex + 1}`);
+                        equipment.error = JSON.stringify(error, null, 2);
+                        fs.writeFileSync('report-migration-err.json', JSON.stringify(equipment, null, 2), { flag: 'a' });
                     }
                 }
             } catch (error) {

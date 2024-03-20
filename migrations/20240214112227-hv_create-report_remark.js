@@ -43,7 +43,7 @@ module.exports = {
         allowNull: true
       },
       next_sample_date: {
-        type: 'TIMESTAMP',
+        type: Sequelize.DATEONLY,
         allowNull: true
       },
       comments: {
