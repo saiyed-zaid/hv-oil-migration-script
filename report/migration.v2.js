@@ -130,7 +130,11 @@ async function reportMigrationV2() {
                                 ? sampleInfoData.CREATION_DATE
                                 : moment(sampleInfoData.SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
                         };
-                        await SampleInfo.create(sampleInfoDataObj);
+                        try {
+                            await SampleInfo.create(sampleInfoDataObj);
+                        } catch (error) {
+                            console.error('> Error: await SampleInfo.create: ', error.message);
+                        }
 
                         // fs.writeFileSync('test-sampleInfoDataObj.json', JSON.stringify(sampleInfoDataObj, null, 2), { flag: 'a' });
 
@@ -170,7 +174,11 @@ async function reportMigrationV2() {
                                     ? moment(dgaTableRecords[0].CREATION_DATE).format('YYYY-MM-DD hh:mm:ss')
                                     : moment().format('YYYY-MM-DD hh:mm:ss')
                             };
-                            await Dga.create(dgaTableObj);
+                            try {
+                                await Dga.create(dgaTableObj);
+                            } catch (error) {
+                                console.error('> Error: await Dga.create: ', error.message);
+                            }
                             // fs.writeFileSync('test-dgaTableObj.json', JSON.stringify(dgaTableObj, null, 2), { flag: 'a' });
                         }
 
@@ -226,7 +234,11 @@ async function reportMigrationV2() {
                                 moisture_remarks: diagTableRecords[0].MOISTURE_REMARKS,
                                 norm_used: diagTableRecords[0].NORM_USED
                             }
-                            await Diag.create(diagtableObj);
+                            try {
+                                await Diag.create(diagtableObj);
+                            } catch (error) {
+                                console.error('> Error: await Diag.create: ', error.message);
+                            }
                             // fs.writeFileSync('test-diagtableObj.json', JSON.stringify(diagtableObj, null, 2), { flag: 'a' });
                         }
 
@@ -296,7 +308,11 @@ async function reportMigrationV2() {
                                 furfurylalc: fqTableRecords[0].FURFURYLALC,
                                 acetylfuran: fqTableRecords[0].ACETYLFURAN,
                             }
-                            await Fq.create(fqTableObj);
+                            try {
+                                await Fq.create(fqTableObj);
+                            } catch (error) {
+                                console.error('> Error: await Fq.create: ', error.message);
+                            }
                             // fs.writeFileSync('test-fqTableObj.json', JSON.stringify(fqTableObj, null, 2), { flag: 'a' });
                         }
 
@@ -328,7 +344,11 @@ async function reportMigrationV2() {
                                     ? moment(reportRemarkRecords[0].CREATION_DATE).format('YYYY-MM-DD hh:mm:ss')
                                     : moment().format('YYYY-MM-DD hh:mm:ss')
                             }
-                            await Report_remark.create(reportRemarkObj);
+                            try {
+                                await Report_remark.create(reportRemarkObj);
+                            } catch (error) {
+                                console.error('> Error: await Report_remark.create: ', error.message);
+                            }
                             // fs.writeFileSync('test-reportRemarkObj.json', JSON.stringify(reportRemarkObj, null, 2), { flag: 'a' });
                         }
 
