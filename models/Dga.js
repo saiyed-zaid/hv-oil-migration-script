@@ -5,7 +5,8 @@ const sequelize = require('../services/database');
 
 class Dga extends Model {
   static associate(models) {
-
+    models.Dga.belongsTo(models.SampleInfo, { foreignKey: 'lab_report_number', sourceKey: 'lab_report_number', as: 'sampleinfo' });
+    models.Dga.addScope('sampleinfo', { include: [{ model: models.SampleInfo, as: 'sampleinfo' }] });
   }
 }
 
@@ -65,7 +66,7 @@ Dga.init({
     allowNull: false
   },
   sample_date: {
-    type: 'TIMESTAMP',
+    type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
     allowNull: false
   },

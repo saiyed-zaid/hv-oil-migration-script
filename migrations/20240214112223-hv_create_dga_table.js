@@ -61,7 +61,7 @@ module.exports = {
         allowNull: false
       },
       sample_date: {
-        type: 'TIMESTAMP',
+        type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,  // TIMESTAMP
         allowNull: false
       },

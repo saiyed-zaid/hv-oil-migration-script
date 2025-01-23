@@ -10,20 +10,23 @@ class Permission extends Model {
     models.Permission.hasOne(models.Role_permission, { foreignKey: 'permission_id', as: 'allow_permission' })
     models.Permission.hasMany(models.Role_permission, { foreignKey: 'permission_id', as: 'allow_permissions' })
     models.Permission.hasMany(models.Permission, { foreignKey: 'parent_id', as: 'parent_detail' })
-    models.Permission.addScope('parent_detail', {
+    models.Permission.addScope('parent_detail', (role_id = null) => ({
       include: [
         {
           model: models.Permission,
           include: {
             model: models.Role_permission,
             attributes: ["id", "role_id", "permission_id", "is_allow"],
+            where: role_id ? {
+              role_id: role_id 
+            } : {},
             as: 'allow_permissions'
           },
-          attributes: ["id", "name", "slug", "parent_id"],
+          attributes: ["id", "name", "slug", "parent_id", 'is_visible_ui'],
           as: 'parent_detail'
         }
       ]
-    });
+    }));
   }
 }
 
@@ -54,6 +57,10 @@ Permission.init({
     onUpdate: 'CASCADE',
     onDelete: 'NO ACTION'
   },
+  is_visible_ui: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: true
+  }
 }, {
   sequelize,
   modelName: 'Permission',

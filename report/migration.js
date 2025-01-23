@@ -90,20 +90,20 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                     equipment_number: sampleInfoTableRecord.EQUIPNUM,
 
                     sample_date: moment(sampleInfoTableRecord.SAMPLEDATE).toISOString() !== null
-                        ? moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
-                        : moment().format('YYYY-MM-DD hh:mm:ss'),
+                        ? moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD')
+                        : moment().format('YYYY-MM-DD'),
                     lab_report_number: sampleInfoTableRecord.LABREPORTNUM,
                     tank: sampleInfoTableRecord.TANK,
                     sample_pt: sampleInfoTableRecord.SAMPLEPT,
                     lab_recv_date: moment(sampleInfoTableRecord.LABRECVDATE).toISOString() !== null
                         ? sampleInfoTableRecord.LABRECVDATE
-                        : moment().format('YYYY-MM-DD hh:mm:ss'),
+                        : moment().format('YYYY-MM-DD'),
                     lab_test_date: moment(sampleInfoTableRecord.LABTESTDATE).toISOString() !== null
                         ? sampleInfoTableRecord.LABTESTDATE
-                        : moment().format('YYYY-MM-DD hh:mm:ss'),
+                        : moment().format('YYYY-MM-DD'),
                     ship_date: moment(sampleInfoTableRecord.SHIPDATE).toISOString() !== null
                         ? sampleInfoTableRecord.SHIPDATE
-                        : moment().format('YYYY-MM-DD hh:mm:ss'),
+                        : moment().format('YYYY-MM-DD'),
                     job_number: sampleInfoTableRecord.JOBNUM,
                     order_number: sampleInfoTableRecord.ORDERNUM,
                     sample_r: sampleInfoTableRecord.SAMPLER,
@@ -126,7 +126,7 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                     reason: sampleInfoTableRecord.REASON,
                     first_report_date: moment(sampleInfoTableRecord.FIRSTREPORTDATE).toISOString() !== null
                         ? sampleInfoTableRecord.FIRSTREPORTDATE
-                        : moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss'),
+                        : moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD'),
                     created_by: user ? user.id : null,
                     updated_by: user ? user.id : null,
                     created_at: moment(sampleInfoTableRecord.CREATION_DATE, 'YYYY-MM-DD hh:mm:ss').toISOString() !== null
@@ -155,8 +155,8 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                         division_id: equipment ? equipment.division_id : null,
                         division_name: equipment ? equipment.division_id : null,
                         sample_date: moment(sampleInfoTableRecord.SAMPLEDATE).toISOString() !== null
-                            ? moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
-                            : moment().format('YYYY-MM-DD hh:mm:ss'),
+                            ? moment(sampleInfoTableRecord.SAMPLEDATE).format('YYYY-MM-DD')
+                            : moment().format('YYYY-MM-DD'),
                         lab_report_number: sampleInfoTableRecord.LABREPORTNUM,
                         h2: dgatableRecord[0].H2,
                         o2: dgatableRecord[0].O2,
@@ -197,18 +197,18 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                         division_id: equipment ? equipment.division_id : null,
                         division_name: equipment ? equipment.division_id : null,
                         sample_date: moment(diagtableRecord[0].SAMPLEDATE).toISOString() !== null
-                            ? moment(diagtableRecord[0].SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
-                            : moment().format('YYYY-MM-DD hh:mm:ss')
+                            ? moment(diagtableRecord[0].SAMPLEDATE).format('YYYY-MM-DD')
+                            : moment().format('YYYY-MM-DD')
                         ,
                         lab_report_number: diagtableRecord[0].LABREPORTNUM,
                         rel_saturation: diagtableRecord[0].RELSATURATION,
                         dewptc: diagtableRecord[0].DEWPTC,
                         dga_retest_date: moment(diagtableRecord[0].DGA_RETESTDATE).toISOString() !== null
-                            ? moment(diagtableRecord[0].DGA_RETESTDATE).format('YYYY-MM-DD hh:mm:ss')
-                            : moment().format('YYYY-MM-DD hh:mm:ss'),
+                            ? moment(diagtableRecord[0].DGA_RETESTDATE).format('YYYY-MM-DD')
+                            : moment().format('YYYY-MM-DD'),
                         fq_retest_date: moment(diagtableRecord[0].FQ_RETESTDATE).toISOString() !== null
-                            ? moment(diagtableRecord[0].FQ_RETESTDATE).format('YYYY-MM-DD hh:mm:ss')
-                            : moment().format('YYYY-MM-DD hh:mm:ss'),
+                            ? moment(diagtableRecord[0].FQ_RETESTDATE).format('YYYY-MM-DD')
+                            : moment().format('YYYY-MM-DD'),
                         tag: diagtableRecord[0].TAG,
                         tdcg: diagtableRecord[0].TDCG,
                         etcg: diagtableRecord[0].ETCG,
@@ -256,9 +256,9 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                         division_id: equipment ? equipment.division_id : null,
                         division_name: equipment ? equipment.division_id : null,
                         sample_date:
-                            moment(fqRecords[0].SAMPLEDATE, 'YYYY-MM-DD hh:mm:ss').toISOString() !== null
-                                ? moment(fqRecords[0].SAMPLEDATE).format('YYYY-MM-DD hh:mm:ss')
-                                : moment().format('YYYY-MM-DD hh:mm:ss'),
+                            moment(fqRecords[0].SAMPLEDATE, 'YYYY-MM-DD').toISOString() !== null
+                                ? moment(fqRecords[0].SAMPLEDATE).format('YYYY-MM-DD')
+                                : moment().format('YYYY-MM-DD'),
                         lab_report_number: sampleInfoTableRecord.LABREPORTNUM,
                         d1816_1: fqRecords[0].D1816_1,
                         d1816_2: fqRecords[0].D1816_2,

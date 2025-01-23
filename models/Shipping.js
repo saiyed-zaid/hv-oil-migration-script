@@ -89,7 +89,7 @@ Shipping.init({
   },
   status: {
     type: DataTypes.ENUM({
-      values: ['shipped', 'received', 'undetermined']
+      values: ['shipped', 'received', 'undetermined', 'returned']
     }),
     defaultValue: 'shipped',
     allowNull: false

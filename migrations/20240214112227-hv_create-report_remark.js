@@ -24,18 +24,22 @@ module.exports = {
       },
       hazards: {
         type: Sequelize.STRING,
+        defaultValue: 'No',
         allowNull: false
       },
       moisture_dynamics: {
         type: Sequelize.STRING,
+        defaultValue: 'Yes',
         allowNull: false
       },
       oil_reconditioning: {
         type: Sequelize.STRING,
+        defaultValue: 'No',
         allowNull: false
       },
       oil_replacement: {
         type: Sequelize.STRING,
+        defaultValue: 'No',
         allowNull: false
       },
       next_tests: {

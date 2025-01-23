@@ -63,7 +63,7 @@ class User extends Model {
     });
 
     models.User.belongsTo(models.Role, { foreignKey: 'role_id', targetKey: 'id', as: 'roles' });
-    models.User.addScope('role', { include: [{ model: models.Role, attributes: ["id", "name"], as: 'roles' }] });
+    models.User.addScope('role', { include: [{ model: models.Role, attributes: ["id", "name", "is_hvoil_role"], as: 'roles' }] });
     models.User.belongsTo(models.Location, { foreignKey: 'location_id', targetKey: 'id', as: 'location' });
     models.User.addScope('location', { include: [{ model: models.Location, attributes: ["id", "name"], as: 'location' }] });
     models.User.belongsTo(models.Division, { foreignKey: 'division_id', targetKey: 'id', as: 'division' });

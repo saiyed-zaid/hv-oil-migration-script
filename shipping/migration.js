@@ -28,7 +28,7 @@ async function shippingMigration() {
             password: process.env.MG_DEV_PASSWORD
         });
 
-        const [shippingRecords, fields] = await connection.query(`SELECT * FROM shipping`);
+        const [shippingRecords, fields] = await connection.query(`SELECT * FROM shipping ORDER BY CREATION_DATE`);
         console.log('> Shipping | Migration initiated');
         console.log('> Total records: ', shippingRecords.length);
         console.log('-------------------------------');
@@ -61,10 +61,15 @@ async function shippingMigration() {
                         : moment().format('YYYY-MM-DD hh:mm:ss')
                 }
                 if (bottleShipped) {
+
+                    // Find last record of this bottle
                     shippingDataToInsert.shipping_type = 'shipped';
                     shippingDataToInsert.syringe_number = null;
                     shippingDataToInsert.bottle_number = bottleShipped;
+
                     shippingDataToInsert.status = 'shipped';
+                    shippingDataToInsert.bottle_at_client = ++shippingDataToInsert.bottle_at_client;
+
                     await createShippingRecord(shippingRecord, shippingDataToInsert);
                 }
                 if (syringeShipped) {
@@ -76,10 +81,17 @@ async function shippingMigration() {
 
                 }
                 if (bottleReceived) {
+                    
                     shippingDataToInsert.shipping_type = 'received';
                     shippingDataToInsert.syringe_number = null;
                     shippingDataToInsert.bottle_number = bottleReceived;
                     shippingDataToInsert.status = 'received';
+
+                    // IF this bottle is sent previsouly && didn't received
+                    // IF last record of this bottle is SENT
+                    shippingDataToInsert.bottle_at_client = --shippingDataToInsert.bottle_at_client;
+
+
                     await createShippingRecord(shippingRecord, shippingDataToInsert);
                 }
                 if (syringeReceived) {
@@ -89,6 +101,9 @@ async function shippingMigration() {
                     shippingDataToInsert.status = 'received';
                     await createShippingRecord(shippingRecord, shippingDataToInsert);
                 }
+
+                // bottle_at_client
+
             } catch (error) {
                 console.error(`> Shipping | Migration ERR | Row number : ${index + 1}`);
                 shippingRecord.error = JSON.stringify(error, null, 2)

@@ -30,18 +30,22 @@ Report_remark.init({
     },
     hazards: {
         type: DataTypes.STRING,
+        defaultValue: 'No',
         allowNull: false
     },
     moisture_dynamics: {
         type: DataTypes.STRING,
+        defaultValue: 'Yes',
         allowNull: false
     },
     oil_reconditioning: {
         type: DataTypes.STRING,
+        defaultValue: 'No',
         allowNull: false
     },
     oil_replacement: {
         type: DataTypes.STRING,
+        defaultValue: 'No',
         allowNull: false
     },
     next_tests: {

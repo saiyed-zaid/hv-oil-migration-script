@@ -15,6 +15,8 @@ class SampleInfo extends Model {
     models.SampleInfo.addScope('appr_type', { include: [{ model: models.Apprtype, as: 'appr_type' }] });
     models.SampleInfo.belongsTo(models.Equipment, { foreignKey: 'equipment_id', sourceKey: 'id', as: 'equipment' });
     models.SampleInfo.addScope('equipment', { include: [{ model: models.Equipment, as: 'equipment' }] });
+    models.SampleInfo.belongsTo(models.Dga, { foreignKey: 'lab_report_number', sourceKey: 'lab_report_number', as: 'dga' });
+    models.SampleInfo.addScope('dga', { include: [{ model: models.Dga, as: 'dga' }] });
   }
 }
 SampleInfo.init({
@@ -109,7 +111,7 @@ SampleInfo.init({
     // allowNull: false
   },
   sample_date: {
-    type: 'TIMESTAMP'
+    type: DataTypes.DATE
   },
   lab_report_number: {
     type: DataTypes.STRING,
@@ -122,15 +124,15 @@ SampleInfo.init({
     type: DataTypes.STRING
   },
   lab_recv_date: {
-    type: 'TIMESTAMP',
+    type: DataTypes.DATE,
     allowNull: false
   },
   lab_test_date: {
-    type: 'TIMESTAMP',
+    type: DataTypes.DATE,
     allowNull: false
   },
   ship_date: {
-    type: 'TIMESTAMP',
+    type: DataTypes.DATE,
     allowNull: false
   },
   job_number: {
@@ -214,7 +216,7 @@ SampleInfo.init({
     allowNull: true
   },
   first_report_date: {
-    type: 'TIMESTAMP',
+    type: DataTypes.DATE,
     allowNull: false
   },
   created_by: {

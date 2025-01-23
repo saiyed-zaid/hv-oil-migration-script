@@ -65,7 +65,7 @@ Diag.init({
         allowNull: false
     },
     sample_date: {
-        type: 'TIMESTAMP',
+        type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         allowNull: false
     },
@@ -82,11 +82,11 @@ Diag.init({
         allowNull: true
     },
     dga_retest_date: {
-        type: 'TIMESTAMP',
+        type: DataTypes.DATE,
         allowNull: false
     },
     fq_retest_date: {
-        type: 'TIMESTAMP',
+        type: DataTypes.DATE,
         allowNull: false
     },
     tag: {

@@ -9,6 +9,8 @@ const shippingMigration = require('./shipping/migration');
 const userMigration = require('./user/migration');
 const moment = require('moment');
 const reportMigrationV2 = require('./report/migration.v2');
+const { Shipping, sequelize } = require('./models');
+const { Op, Sequelize } = require('sequelize');
 
 let askMore = true;
 const questions =
@@ -100,7 +102,63 @@ const questions =
     } catch (error) {
         console.error(error.message);
     }
-})();
+});
+
+(async function _shipping_fixes() {
+    try {
+        const shippingRecords = await Shipping.findAll({
+            where: {
+                // company_id: 12,
+                // bottle_number: { [Op.not]: null }
+                shipping_type: 'received',
+                // id: { [Op.gt]: 34842 }
+            },
+            order: [
+                ['shipping_date', 'ASC'],
+                ['id', 'ASC']
+            ],
+            // limit: 5,
+            // logging: true
+        });
+        for (let shippingIndex = 0; shippingIndex < shippingRecords.length; shippingIndex++) {
+            console.log(shippingRecords.length, ' = ', shippingIndex);
+            const shippingRecord = shippingRecords[shippingIndex];
+
+            if (shippingRecord.shipping_type === 'received') {
+                console.log('>> shippingIndex: ', shippingRecord.id);
+
+                const lastRecord = await Shipping.findOne({
+                    where: {
+                        id: { [Op.ne]: shippingRecord.id },
+                        company_id: shippingRecord.company_id,
+                        division_id: shippingRecord.division_id,
+                        shipping_type: 'shipped',
+                        shipping_date: { [Op.lte]: shippingRecord.shipping_date },
+                        bottle_number: shippingRecord.bottle_number,
+                        syringe_number: shippingRecord.syringe_number,
+                        // status: { [Op.ne]: 'returned' }
+                    },
+                    order: [
+                        ['created_at', 'DESC']
+                    ],
+                });
+
+                if (!lastRecord) {
+                    shippingRecord.status = 'undetermined';
+                    await shippingRecord.save();
+                    continue;
+                }
+
+                if (lastRecord && lastRecord.status === 'shipped') {
+                    lastRecord.status = 'returned';
+                    await lastRecord.save();
+                }
+            }
+        }
+    } catch (error) {
+        console.error('>> Err: ', error);
+    }
+});
 
 async function _update(model, status, startTime = null, endTime = null) {
     model.status = status;

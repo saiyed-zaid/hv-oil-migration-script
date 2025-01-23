@@ -65,7 +65,7 @@ Fq.init({
         allowNull: false
     },
     sample_date: {
-        type: 'TIMESTAMP',
+        type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
         allowNull: false
     },

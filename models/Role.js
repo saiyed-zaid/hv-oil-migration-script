@@ -19,6 +19,10 @@ Role.init({
   name: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  is_hvoil_role: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false
   }
 }, {
   sequelize,

@@ -16,6 +16,11 @@ module.exports = {
         name: 'user',
         created_at: new Date(),
         updated_at: new Date()
+      },
+      {
+        name: 'employee',
+        created_at: new Date(),
+        updated_at: new Date()
       }
     ], {});
   },

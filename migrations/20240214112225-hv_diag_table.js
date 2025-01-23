@@ -61,7 +61,7 @@ module.exports = {
         allowNull: false
       },
       sample_date: {
-        type: 'TIMESTAMP',  // TIMESTAMP
+        type: Sequelize.DATE,  // TIMESTAMP
         defaultValue: Sequelize.NOW,
         allowNull: false
       },
@@ -78,11 +78,11 @@ module.exports = {
         allowNull: true
       },
       dga_retest_date: {
-        type: 'TIMESTAMP',  // TIMESTAMP
+        type: Sequelize.DATE,  // TIMESTAMP
         allowNull: false
       },
       fq_retest_date: {
-        type: 'TIMESTAMP',  // TIMESTAMP
+        type: Sequelize.DATE,  // TIMESTAMP
         allowNull: false
       },
       tag: {
