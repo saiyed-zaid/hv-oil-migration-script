@@ -3,11 +3,11 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    // await queryInterface.addColumn('hv_permission', 'is_visible_ui', {
-    //   type: Sequelize.BOOLEAN,
-    //   defaultValue: true,
-    //   allowNull: false,
-    // });
+    await queryInterface.addColumn('hv_permission', 'is_visible_ui', {
+      type: Sequelize.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
+    });
   },
 
   async down (queryInterface, Sequelize) {

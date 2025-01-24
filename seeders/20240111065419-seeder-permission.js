@@ -474,6 +474,12 @@ module.exports = {
         parent_id: 10,
         created_at: new Date(),
         updated_at: new Date()
+      },
+      {
+        name: "Report Comments",
+        parent_id: 5,
+        created_at: new Date(),
+        updated_at: new Date()
       }
     ]
 
