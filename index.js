@@ -102,7 +102,7 @@ const questions =
     } catch (error) {
         console.error(error.message);
     }
-});
+})();
 
 (async function _shipping_fixes() {
     try {
