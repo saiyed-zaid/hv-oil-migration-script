@@ -63,12 +63,12 @@ async function equipmentMigration() {
                 surveillance: equipmentRecord.SURVEILLANCE,
                 eqp_remarks: equipmentRecord.EQPREMARKS,
                 cond: equipmentRecord.COND,
-                created_at: moment.isDate(equipmentRecord.CREATION_DATE, 'YYYY-MM-DD hh:mm:ss')
-                    ? equipmentRecord.CREATION_DATE
-                    : moment().format('YYYY-MM-DD hh:mm:ss'),
-                updated_at: moment.isDate(equipmentRecord.CREATION_DATE, 'YYYY-MM-DD hh:mm:ss')
-                    ? equipmentRecord.CREATION_DATE
-                    : moment().format('YYYY-MM-DD hh:mm:ss')
+                created_at: equipmentRecord.CREATION_DATE !== "0000-00-00 00:00:00" ?
+                moment("2014-03-01 00:00:00").format('YYYY-MM-DD hh:mm:ss')
+                : moment(equipmentRecord.CREATION_DATE).format('YYYY-MM-DD hh:mm:ss'),
+                updated_at: equipmentRecord.CREATION_DATE !== "0000-00-00 00:00:00" ?
+                moment("2014-03-01 00:00:00").format('YYYY-MM-DD hh:mm:ss')
+                : moment(equipmentRecord.CREATION_DATE).format('YYYY-MM-DD hh:mm:ss'),
             }
             try {
                 const apprtype = await Apprtype.findOne({ where: { type: equipmentRecord.APPRTYPE }, raw: true });
