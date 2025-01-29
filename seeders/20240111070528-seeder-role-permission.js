@@ -289,7 +289,7 @@ module.exports = {
         {
           permission_id: 41,
           role_id: 1,
-          is_allow: true,
+          is_allow: false,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -331,7 +331,7 @@ module.exports = {
         {
           permission_id: 47,
           role_id: 1,
-          is_allow: true,
+          is_allow: false,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -345,14 +345,14 @@ module.exports = {
         {
           permission_id: 49,
           role_id: 1,
-          is_allow: true,
+          is_allow: false,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           permission_id: 50,
           role_id: 1,
-          is_allow: true,
+          is_allow: false,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -380,7 +380,7 @@ module.exports = {
         {
           permission_id: 54,
           role_id: 1,
-          is_allow: true,
+          is_allow: false,
           created_at: new Date(),
           updated_at: new Date()
         },
@@ -419,13 +419,239 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date()
         },
-        // {
-        //   permission_id: 60,
-        //   role_id: 1,
-        //   is_allow: true,
-        //   created_at: new Date(),
-        //   updated_at: new Date()
-        // },
+        {
+          permission_id: 60,
+          role_id: 1,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+
+        /// EMPLOYEE PERMISSION
+        {
+          permission_id: 1,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 2,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 3,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 4,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 5,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 6,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 7,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 8,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 9,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 10,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 11,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 16,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 27,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 11,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 33,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 34,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 35,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 36,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 37,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 38,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 39,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 40,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 42,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 43,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 44,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 45,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 46,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 48,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 49,
+          role_id: 3,
+          is_allow: false,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 50,
+          role_id: 3,
+          is_allow: false,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 53,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          permission_id: 60,
+          role_id: 3,
+          is_allow: true,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
         // {
         //   permission_id: 61,
         //   role_id: 1,

@@ -6,105 +6,125 @@ module.exports = {
     let permission_data = [
       {
         name: "Company",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         name: "Division",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Equipment",
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "HV Oil branch",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Report",
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Request Shipping Supply",
+
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Role Permission",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Shipment",
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Users",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Roles",
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of branches",
         parent_id: 4,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new branch",
         parent_id: 4,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Edit branch details",
         parent_id: 4,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Enable / Disable branch",
         parent_id: 4,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete branch",
         parent_id: 4,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of companies",
         parent_id: 1,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new company",
         parent_id: 1,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Edit company details",
         parent_id: 1,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Enable / disable company",
         parent_id: 1,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -123,42 +143,49 @@ module.exports = {
       {
         name: "Delete company",
         parent_id: 1,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of users",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new user",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Edit user details",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Activate / deactivate user",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Reset password",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete user",
         parent_id: 9,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -171,24 +198,28 @@ module.exports = {
       {
         name: "List of divisions",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new division",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Edit division details",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Activate / deactivate division",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -201,18 +232,21 @@ module.exports = {
       {
         name: "View division details page",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete division",
         parent_id: 2,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of shipments",
         parent_id: 8,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -237,6 +271,7 @@ module.exports = {
       {
         name: "Add new shipment",
         parent_id: 8,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -249,24 +284,28 @@ module.exports = {
       {
         name: "List of shipping supply requests",
         parent_id: 6,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new shipping supply request",
         parent_id: 6,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Action",
         parent_id: 6,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new shipment from request",
         parent_id: 6,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
 
@@ -280,6 +319,7 @@ module.exports = {
       {
         name: "List of equipments",
         parent_id: 3,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -292,6 +332,7 @@ module.exports = {
       {
         name: "Print labels",
         parent_id: 3,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -304,6 +345,7 @@ module.exports = {
       {
         name: "View equipment details page",
         parent_id: 3,
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -334,72 +376,84 @@ module.exports = {
       {
         name: "Add new equipment",
         parent_id: 3,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Edit equipment details",
         parent_id: 3,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Import equipment",
         parent_id: 3,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of SROM reports",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "View report PDF",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Search report",
         parent_id: 5,
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of general reports",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Export general report",
         parent_id: 5,
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Export SROM report",
         parent_id: 5,
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete SORM report",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete general report",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Upload CSV",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -412,6 +466,7 @@ module.exports = {
       {
         name: "Generate report PDF",
         parent_id: 5,
+        is_visible_ui: false,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -430,6 +485,7 @@ module.exports = {
       {
         name: "Display permissions matrix",
         parent_id: 7,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
@@ -454,30 +510,35 @@ module.exports = {
       {
         name: "Assign permission",
         parent_id: 7,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Add new role",
         parent_id: 10,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Delete role",
         parent_id: 10,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "List of roles",
         parent_id: 10,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       },
       {
         name: "Report Comments",
         parent_id: 5,
+        is_visible_ui: true,
         created_at: new Date(),
         updated_at: new Date()
       }
