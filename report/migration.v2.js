@@ -112,7 +112,7 @@ async function reportMigrationV2() {
                             paint: sampleInfoData.PAINT,
                             breather: sampleInfoData.BREATHER,
                             corrosion: sampleInfoData.CORROSION,
-                            silick_gel: sampleInfoData.SILICKGEL,
+                            desiccant: sampleInfoData.SILICKGEL,
                             ops_count: sampleInfoData.OPSCOUNT,
                             lab_name: sampleInfoData.LAB_NAME,
                             is_base: sampleInfoData.IS_BASE,

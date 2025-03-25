@@ -191,7 +191,7 @@ SampleInfo.init({
     type: DataTypes.STRING,
     allowNull: true
   },
-  silick_gel: {
+  desiccant: {
     type: DataTypes.STRING,
     allowNull: true
   },

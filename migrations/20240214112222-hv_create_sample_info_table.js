@@ -178,7 +178,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      silick_gel: {
+      desiccant: {
         type: Sequelize.STRING,
         allowNull: true
       },

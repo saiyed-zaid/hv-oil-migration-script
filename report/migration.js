@@ -118,7 +118,7 @@ async function reportMigration(PAGE = 1, LIMIT = 10) {
                     paint: sampleInfoTableRecord.PAINT,
                     breather: sampleInfoTableRecord.BREATHER,
                     corrosion: sampleInfoTableRecord.CORROSION,
-                    silick_gel: sampleInfoTableRecord.SILICKGEL,
+                    desiccant: sampleInfoTableRecord.SILICKGEL,
                     ops_count: sampleInfoTableRecord.OPSCOUNT,
                     lab_name: sampleInfoTableRecord.LAB_NAME,
                     is_base: sampleInfoTableRecord.IS_BASE,
