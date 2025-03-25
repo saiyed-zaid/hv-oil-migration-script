@@ -79,11 +79,11 @@ module.exports = {
       },
       dga_retest_date: {
         type: Sequelize.DATE,  // TIMESTAMP
-        allowNull: false
+        allowNull: true
       },
       fq_retest_date: {
         type: Sequelize.DATE,  // TIMESTAMP
-        allowNull: false
+        allowNull: true
       },
       tag: {
         type: Sequelize.TEXT,

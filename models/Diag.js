@@ -83,11 +83,11 @@ Diag.init({
     },
     dga_retest_date: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     },
     fq_retest_date: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: true
     },
     tag: {
         type: DataTypes.STRING,
