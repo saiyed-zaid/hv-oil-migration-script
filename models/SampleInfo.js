@@ -17,6 +17,8 @@ class SampleInfo extends Model {
     models.SampleInfo.addScope('equipment', { include: [{ model: models.Equipment, as: 'equipment' }] });
     models.SampleInfo.belongsTo(models.Dga, { foreignKey: 'lab_report_number', sourceKey: 'lab_report_number', as: 'dga' });
     models.SampleInfo.addScope('dga', { include: [{ model: models.Dga, as: 'dga' }] });
+    models.SampleInfo.belongsTo(models.Diag, { foreignKey: 'lab_report_number', sourceKey: 'lab_report_number', as: 'diag' });
+    models.SampleInfo.addScope('diag', { include: [{ model: models.Diag, as: 'diag' }] });
   }
 }
 SampleInfo.init({

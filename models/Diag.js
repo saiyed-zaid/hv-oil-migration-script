@@ -5,7 +5,8 @@ const sequelize = require('../services/database');
 
 class Diag extends Model {
     static associate(models) {
-
+        models.Diag.belongsTo(models.SampleInfo, { foreignKey: 'lab_report_number', sourceKey: 'lab_report_number', as: 'sampleinfo' });
+        models.Diag.addScope('sampleinfo', { include: [{ model: models.SampleInfo, as: 'sampleinfo' }] });
     }
 }
 
